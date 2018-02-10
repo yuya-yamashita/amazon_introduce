@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   validates :price, presence: true
 	validates :image, presence: true
 	validates :description, presence: true
+	validates :product_id, uniqueness: {tirle:}
 
 	has_many :site_products
 	has_many :sites, through: :site_products

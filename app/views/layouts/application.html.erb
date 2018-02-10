@@ -9,6 +9,26 @@
   </head>
 
   <body>
+    <ul class="nav navbar-nav navbar-right">
+      <% if logged_in? %>
+      <li>
+        <%= link_to "管理者画面", sites_path%>
+      </li>
+      <li>
+        <%= link_to "新規サイト作成", new_site_path%>
+      </li>
+      <li>
+        <%= link_to "Logout", logout_path, method: :delete%>
+      </li>
+      <% else %>
+      <li>
+        <%= link_to "User New", new_user_path%>
+      </li>
+      <li>
+        <%= link_to "User Login", login_path%>
+      </li>
+      <% end %>
+    </ul>
     <%= yield %>
   </body>
 </html>

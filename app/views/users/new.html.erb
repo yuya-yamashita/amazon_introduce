@@ -1,5 +1,13 @@
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
+<% if @user.errors.any? %>
+	<h2><%= @user.errors.count %>件のエラーがあります。</h2>
+	    <ul>
+	      <% @user.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	    </ul>
+<% end %>
 <%= form_for @user do |f| %>
   <div>
     <%= f.label :email%>

@@ -1,0 +1,21 @@
+<h1>Tags#new</h1>
+<p>Find me in app/views/tags/new.html.erb</p>
+<% if @tag.errors.any? %>
+	<h2><%= @tag.errors.count %>件のエラーがあります。</h2>
+	    <ul>
+	      <% @tag.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	    </ul>
+<% end %>
+<% @tags.each do |tag| %>
+	<%= tag.name %>
+<% end %>
+<%= form_for @tag do |f| %>
+  <div>
+    <%= f.label :name%>
+    <%= f.text_field :name%>
+		<%= f.hidden_field :site_id, :value => params[:site_id] %>
+  </div>
+  <%= f.submit "登録"%>
+<% end %>
