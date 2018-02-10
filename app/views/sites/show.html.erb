@@ -3,6 +3,6 @@
 <div>
 	サイト名：<%= @site.name %>
 	紹介：<%= @site.description %>
-	<%= link_to '商品追加', new_product_path %>
-	<%= link_to 'サイト内タグ追加', new_tag_path(site_id: @site.id) %>
+	<%= link_to '商品管理', new_product_path %>
+	<%= link_to 'タグ管理', new_tag_path(site_id: @site.id) %>
 </div>

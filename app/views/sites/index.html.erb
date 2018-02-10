@@ -5,6 +5,8 @@
 	<div>
 		サイト名：<%= site.name %>
 		紹介：<%= site.description %>
-		<%= link_to '詳細', site_path(site.id), method: :get %>  編集 削除
+		<%= link_to '詳細', site_path(site.id), method: :get %>
+		<%= link_to '編集', edit_site_path(site.id) %>
+		<%= link_to '削除', site_path(site.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
 	</div>
 <% end %>
