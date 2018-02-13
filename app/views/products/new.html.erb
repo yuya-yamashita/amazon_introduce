@@ -1,2 +1,35 @@
 <h1>Products#new</h1>
 <p>Find me in app/views/products/new.html.erb</p>
+<% if @product.errors.any? %>
+	<h2><%= @product.errors.count %>件のエラーがあります。</h2>
+	    <ul>
+	      <% @product.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	    </ul>
+<% end %>
+
+<%= form_for @product do |f| %>
+  <div>
+    <%= f.label :title%>
+    <%= f.text_field :title%>
+		<%= f.label :price%>
+    <%= f.text_field :price%>
+		<%= f.label :image %>
+    <%= f.file_field :image%>
+		<%= f.label :description%>
+    <%= f.text_field :description%>
+		<%= f.hidden_field :site_id, :value => params[:site_id] %>
+  </div>
+  <%= f.submit "登録"%>
+<% end %>
+登録商品一覧<br/>
+<% @products.each do |product| %>
+	<%= product.title %>
+	<%= product.price %>
+	<%= product.image %>
+	<%= product.description %>
+	<%= link_to '編集', edit_product_path(product.id) %>
+	<%= link_to '削除', product_path(product.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
+	<br/>
+<% end %>

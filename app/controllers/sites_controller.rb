@@ -27,7 +27,7 @@ class SitesController < ApplicationController
 
   def update
     if @site.update(site_params)
-      redirect_to sites_path, notice: 'タグの編集に成功しました'
+      redirect_to site_path(@site.id), notice: 'タグの編集に成功しました'
     else
       render :new
     end

@@ -3,6 +3,6 @@ class Tag < ApplicationRecord
   validates :site_id, presence: true
 
 	belongs_to :site
-	has_many :product_tags
+	has_many :product_tags, foreign_key: 'tag_id'
 	has_many :products, through: :product_tags
 end

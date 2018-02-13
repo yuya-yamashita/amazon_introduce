@@ -4,7 +4,6 @@ class Site < ApplicationRecord
   validates :user_id, presence: true
 
 	belongs_to :user
-	has_many :site_products
-	has_many :products, through: :site_products
 	has_many :tags, dependent: :destroy
+	has_many :products, dependent: :destroy
 end

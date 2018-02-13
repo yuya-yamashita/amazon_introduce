@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'tags/new'
-
-  get 'products/new'
 
   get 'sites/new'
 
