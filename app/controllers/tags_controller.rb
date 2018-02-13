@@ -1,9 +1,12 @@
 class TagsController < ApplicationController
 before_action :set_tag, only: [:edit, :update, :destroy]
+before_action :set_session_new, only: [:new]
+after_action :set_session_update, only: [:edit, :update, :destroy]
 
   def new
+    binding.pry
     @tag = Tag.new
-    @tags = Tag.all
+    @tags = Tag.where(site_id: session[:site_id])
   end
 
   def create
@@ -41,6 +44,14 @@ before_action :set_tag, only: [:edit, :update, :destroy]
 
   def set_tag
     @tag = Tag.find(params[:id])
+  end
+
+  def set_session_new
+    session[:site_id] = params[:site_id]
+  end
+
+  def set_session_update
+    session[:site_id] = @tag.site_id
   end
 
 end

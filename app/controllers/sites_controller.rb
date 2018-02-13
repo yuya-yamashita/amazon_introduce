@@ -1,5 +1,6 @@
 class SitesController < ApplicationController
   before_action :set_site, only: [:edit, :update, :destroy]
+  before_action :session_reset
 
   def new
     @site = Site.new
@@ -44,6 +45,10 @@ class SitesController < ApplicationController
   private
   def site_params
     params.require(:site).permit(:name, :description)
+  end
+
+  def session_reset
+    session[:site_id] = nil
   end
 
   def set_site
