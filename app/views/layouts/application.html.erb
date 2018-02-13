@@ -9,26 +9,38 @@
   </head>
 
   <body>
-    <ul class="nav navbar-nav navbar-right">
-      <% if logged_in? %>
-      <li>
-        <%= link_to "管理者画面", sites_path%>
-      </li>
-      <li>
-        <%= link_to "新規サイト作成", new_site_path%>
-      </li>
-      <li>
-        <%= link_to "Logout", logout_path, method: :delete%>
-      </li>
-      <% else %>
-      <li>
-        <%= link_to "User New", new_user_path%>
-      </li>
-      <li>
-        <%= link_to "User Login", login_path%>
-      </li>
-      <% end %>
-    </ul>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
+      <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+        <li>
+          <%= link_to "管理者画面", sites_path%>
+        </li>
+        <li>
+          <%= link_to "新規サイト作成", new_site_path%>
+        </li>
+        <li>
+          <%= link_to "ログアウト", logout_path, method: :delete%>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to "新規登録", new_user_path%>
+        </li>
+        <li>
+          <%= link_to "ログイン", login_path%>
+        </li>
+        <% end %>
+      </ul>
+      <% if flash[:notice] %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+  </nav>
     <%= yield %>
   </body>
 </html>

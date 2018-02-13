@@ -1,5 +1,7 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<%= link_to('User New', new_user_path)%>
-<%= link_to('User Login', login_path)%>
-<%= link_to('Logout', logout_path, method: :delete)%>
+<div class="container">
+	<div class="home-positon">
+		<h1>ログイン画面</h1>
+		<%= link_to('新規登録', new_user_path)%>
+		<%= link_to('ログイン', login_path)%>
+	</div>
+</div>

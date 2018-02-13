@@ -1,9 +1,38 @@
-<h1>Sites#show</h1>
-<p>Find me in app/views/sites/show.html.erb</p>
-<div>
-	サイト名：<%= @site.name %>
-	紹介：<%= @site.description %>
-	<%= link_to 'タイトル：紹介編集', edit_site_path(@site.id) %>
-	<%= link_to '商品管理', new_product_path(site_id: @site.id) %>
-	<%= link_to 'タグ管理', new_tag_path(site_id: @site.id) %>
+<div class="container">
+	<div class="home-positon">
+		<div>
+			<h1>サイト詳細画面</h1>
+			<table>
+				<tr>
+					<td>
+						サイト名：
+					</td>
+					<td>
+						<%= @site.name %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						紹介：
+					</td>
+					<td>
+						<%= @site.description %>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<%= link_to 'サイト名サイト紹介編集', edit_site_path(@site.id) %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= link_to '商品管理', new_product_path(site_id: @site.id) %>
+					</td>
+					<td>
+						<%= link_to 'タグ管理', new_tag_path(site_id: @site.id) %>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
 </div>

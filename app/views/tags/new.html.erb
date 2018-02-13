@@ -1,26 +1,28 @@
-<h1>Tags#new</h1>
-<p>Find me in app/views/tags/new.html.erb</p>
-<% if @tag.errors.any? %>
-	<h2><%= @tag.errors.count %>件のエラーがあります。</h2>
-	    <ul>
-	      <% @tag.errors.full_messages.each do |message| %>
-	        <li><%= message %></li>
-	      <% end %>
-	    </ul>
-<% end %>
-
-<%= form_for @tag do |f| %>
-  <div>
-    <%= f.label :name%>
-    <%= f.text_field :name%>
-		<%= f.hidden_field :site_id, :value => params[:site_id] %>
-  </div>
-  <%= f.submit "登録"%>
-<% end %>
-登録タグ一覧<br/>
-<% @tags.each do |tag| %>
-	<%= tag.name %>
-	<%= link_to '編集', edit_tag_path(tag.id) %>
-	<%= link_to '削除', tag_path(tag.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
-	<br/>
-<% end %>
+<div class="container">
+	<div class="home-positon">
+		<% if @tag.errors.any? %>
+			<h2><%= @tag.errors.count %>件のエラーがあります。</h2>
+			    <ul>
+			      <% @tag.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			      <% end %>
+			    </ul>
+		<% end %>
+		<h1>タグ管理画面</h1>
+		<%= form_for @tag do |f| %>
+		  <div>
+		    <%= f.label :name%>
+		    <%= f.text_field :name%>
+				<%= f.hidden_field :site_id, :value => params[:site_id] %>
+		  </div>
+		  <%= f.submit "登録"%>
+		<% end %>
+		登録タグ一覧<br/>
+		<% @tags.each do |tag| %>
+			<%= tag.name %>
+			<%= link_to '編集', edit_tag_path(tag.id) %>
+			<%= link_to '削除', tag_path(tag.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
+			<br/>
+		<% end %>
+	</div>
+</div>
